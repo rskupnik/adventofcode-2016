@@ -27,6 +27,11 @@ public final class Point {
         return x * y;
     }
 
+    @Override
+    public String toString() {
+        return "["+x+","+y+"]";
+    }
+
     public Point travel(Direction direction, int distance) {
         return new Point(
             direction == Direction.E ? x+distance : direction == Direction.W ? x-distance : x,

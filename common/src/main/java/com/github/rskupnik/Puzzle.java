@@ -11,8 +11,7 @@ import java.util.stream.Collectors;
 
 public abstract class Puzzle {
 
-    public abstract String solvePart1() throws IOException;
-    public abstract String solvePart2() throws IOException;
+    public abstract String solve() throws IOException;
 
     protected String load() throws IOException {
         return load("input.txt");
