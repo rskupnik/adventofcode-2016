@@ -3,12 +3,14 @@ package com.github.rskupnik;
 import java.io.IOException;
 import java.util.Arrays;
 
-public class Day2Part1 extends Puzzle {
+public class Day2Part2 extends Puzzle {
 
     private static final int[][] DIGITS = new int[][]{
-            {1, 2, 3},
-            {4, 5, 6},
-            {7, 8, 9}
+           {1},
+        {2, 3, 4},
+     {5, 6, 7, 8, 9},
+       {10, 11, 12},
+           {13}
     };
 
     @Override
@@ -21,7 +23,7 @@ public class Day2Part1 extends Puzzle {
                             cur.setPreviousNumber(move(prev.getPreviousNumber(), cur.getDirection()));
                             return cur;
                         }).getPreviousNumber())
-                .map(digit -> String.valueOf(digit))
+                .map(digit -> digitToString(digit))
                 .reduce("", (prev, cur) -> prev+cur);
     }
 
@@ -39,9 +41,11 @@ public class Day2Part1 extends Puzzle {
     }
 
     private int[] locateDigit(int digit) {
-        int x = digit >= 1 && digit <= 3 ? 0 : digit >= 4 && digit <= 6 ? 1 : 2;
-        int y = digit == 1 || digit == 4 || digit == 7 ? 0 : digit == 2 || digit == 5 || digit == 8 ? 1 : 2;
-        return new int[] {x, y};
+        return null;
+    }
+
+    private String digitToString(int digit) {
+        return digit <= 9 ? String.valueOf(digit) : digit == 10 ? "A" : digit == 11 ? "B" : digit == 12 ? "C" : "D";
     }
 
     public static void main(String[] args) throws IOException {
